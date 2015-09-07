@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<style>
+			.clearfix:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden
+			}
+			.clearfix {
+				zoom: 1;
+			}
+			@media screen and (max-width: 1024px) {
+				ul,
+				li {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+					width: 100%;
+					text-align: center;
+				}
+				#programBeta {
+					min-width: 320px;
+					border: 1px solid #bdbdbd;
+					border-bottom: 0;
+				}
+				#programBeta ul.title {
+					display: none;
+				}
+				#programBeta .day:nth-child(even) {
+					background-color: #f0f0f0;
+				}
+				#programBeta .date {
+					font-weight: bold;
+					font-size: 1.5em;
+					border-bottom: 1px solid #bdbdbd;
+					padding: 10px 0;
+				}
+				#programBeta .detail {
+					display: none;
+				}
+				#programBeta .detail ul {
+					border-bottom: 1px solid #bdbdbd;
+					padding: 10px 0;
+				}
+				#programBeta .time {
+					padding-bottom: 10px;
+				}
+				#programBeta li.date {
+					cursor: pointer;
+				}
+			}
+			@media screen and (min-width: 1023px) {
+				ul,
+				li {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+					word-wrap: break-word;
+				}
+				a {
+					display: block;
+				}
+				#programBeta {
+					/**/
+				}
+				#programBeta .day:nth-child(even) {
+					background-color: #f0f0f0;
+				}
+				#programBeta ul.day,
+				#programBeta ul.title {
+					width: 96%;
+					margin: 0 auto;
+					padding: 20px 10px 0px;
+				}
+				#programBeta ul.title li {
+					font-weight: bold;
+				}
+				#programBeta li.date,
+				#programBeta li.detail,
+				#programBeta li.time,
+				#programBeta li.event,
+				#programBeta ul.title li {
+					float: left;
+				}
+				#programBeta li.date,
+				#programBeta ul.title li:nth-child(1),
+				#programBeta ul.title li:nth-child(2) {
+					width: 20%;
+				}
+				#programBeta li.detail {
+					width: 80%;
+				}
+				#programBeta li.time {
+					width: 25%;
+				}
+				#programBeta li.detail li.event {
+					margin-bottom: 20px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="programBeta">
+			<!--The title of the table-->
+			<ul class="title clearfix">
+				<li>DAY</li>
+				<li>TIME</li>
+				<li>EVENT</li>
+			</ul>
+			<!--The content of the table-->
+			<ul class="day clearfix">
+				<li class="date">Sunday, October 11</li>
+				<li class="detail">
+					<ul class="clearfix">
+						<li class="time">All day</li>
+						<li class="event">IAEA Executive Committee Meeting</li>
+					</ul>
+					<ul class="clearfix">
+						<li class="time">9:00 a.m.–noon</li>
+						<li class="event">Pre-conference workshop I:
+							<a href="" target="_blank">Development and validation of diagnostic reporting in student monitoring systems (CITO)</a></li>
+					</ul>
+					<ul class="clearfix">
+						<li class="time">1:00–4:00 p.m.</li>
+						<li class="event">Pre-conference workshop II:
+							<a href="" target="_blank">Fundamentals of diagnostic classification modeling (CETE)</a></li>
+					</ul>
+					<ul class="clearfix">
+						<li class="time">7:00–8:30 p.m.</li>
+						<li class="event">Opening reception</li>
+					</ul>
+				</li>
+			</ul>
+
+			<ul class="day clearfix">
+				<li class="date">Sunday, October 11</li>
+				<li class="detail">
+					<ul class="clearfix">
+						<li class="time">All day</li>
+						<li class="event">IAEA Executive Committee Meeting</li>
+					</ul>
+					<ul class="clearfix">
+						<li class="time">9:00 a.m.–noon</li>
+						<li class="event">Pre-conference workshop I:
+							<a href="" target="_blank">Development and validation of diagnostic reporting in student monitoring systems (CITO)</a></li>
+					</ul>
+					<ul class="clearfix">
+						<li class="time">1:00–4:00 p.m.</li>
+						<li class="event">Pre-conference workshop II:
+							<a href="" target="_blank">Fundamentals of diagnostic classification modeling (CETE)</a></li>
+					</ul>
+					<ul class="clearfix">
+						<li class="time">7:00–8:30 p.m.</li>
+						<li class="event">Opening reception</li>
+					</ul>
+				</li>
+			</ul>
+
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var slideToggle = {
+					$target: $(".date"),
+					$slide_content: $(".detail"),
+					$cur_width: $(window).width(),
+					initial: function() {
+						if (this.$cur_width < 1024) {
+							this.$slide_content.eq(0).css({
+								display: 'block'
+							});
+							this.bind(this.$target);
+						}
+					},
+					bind: function($o) {
+						$o.bind("click", function() {
+							var $detail = $(this).next('.detail');
+							slideToggle.animate($detail);
+						});
+					},
+					animate: function($o) {
+						if ($o.is(":hidden")) {
+							$o.slideDown('slow');
+						} else {
+							$o.slideUp('slow');
+						}
+					}
+				};
+				slideToggle.initial();
+			});
+		</script>
+	</body>
+
+</html>
