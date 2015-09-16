@@ -8,12 +8,6 @@
 .clearfix {
 	zoom: 1;
 }
-.programBeta table.event_detail {
-	margin: 10px auto 0;
-}
-.programBeta table.event_detail td {
-	text-align: left;
-}
 @media screen and (max-width: 1024px) {
 	.programBeta ul,
 	.programBeta li {
@@ -45,7 +39,7 @@
 	.programBeta .detail {
 		display: none;
 	}
-	.programBeta .detail > ul {
+	.programBeta .detail ul {
 		border-bottom: 1px solid #bdbdbd;
 		padding: 10px 0;
 	}
