@@ -11,8 +11,12 @@
 .programBeta table.event_detail {
 	margin: 10px auto 0;
 }
+.programBeta table.event_detail tr{
+	padding: 0 5px 0 10px;
+} 
 .programBeta table.event_detail td {
 	text-align: left;
+	padding: 0px 5px;
 }
 @media screen and (max-width: 1024px) {
 	.programBeta ul,
@@ -24,7 +28,6 @@
 		text-align: center;
 	}
 	.programBeta {
-		width: 96%;
 		min-width: 320px;
 		margin: 0 auto;
 		border: 1px solid #bdbdbd;
@@ -54,6 +57,10 @@
 	}
 	.programBeta li.date {
 		cursor: pointer;
+	}
+	.programBeta table.event_detail tr td:first-child{
+		text-align: right;
+		vertical-align: text-top;
 	}
 }
 @media screen and (min-width: 1023px) {
